@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerifyX — Truth Beyond The Noise</title>
+    <meta name="description" content="AI-powered fact-checking and misinformation detection platform">
+    <meta name="theme-color" content="#0a0e27">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <style>
+    /* ═══════════════════════════════════════════════════════════════
+       VerifyX — Complete Professional Design System
+       "Truth Beyond The Noise"
+       ═══════════════════════════════════════════════════════════════ */
+    :root{--vx-cyan:#00d4ff;--vx-cyan-rgb:0,212,255;--vx-purple:#7b2ff7;--vx-purple-rgb:123,47,247;--vx-blue:#1a73e8;--vx-blue-rgb:26,115,232;--vx-bg-primary:#060918;--vx-bg-secondary:#0a0e27;--vx-bg-tertiary:#0f1438;--vx-bg-card:rgba(15,20,56,0.6);--vx-bg-card-solid:#0f1438;--vx-bg-input:rgba(10,14,39,0.8);--vx-bg-hover:rgba(255,255,255,0.04);--vx-bg-active:rgba(255,255,255,0.08);--vx-text-primary:#f0f2ff;--vx-text-secondary:#a0a8d0;--vx-text-tertiary:#6b73a0;--vx-text-muted:#4a5080;--vx-border-primary:rgba(255,255,255,0.08);--vx-border-secondary:rgba(255,255,255,0.12);--vx-true:#34d399;--vx-true-rgb:52,211,153;--vx-partially-true:#fbbf24;--vx-misleading:#fb923c;--vx-unverified:#94a3b8;--vx-false:#ef4444;--vx-false-rgb:239,68,68;--vx-gradient-primary:linear-gradient(135deg,var(--vx-cyan),var(--vx-purple));--vx-gradient-card:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.02) 100%);--vx-font-primary:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--vx-font-display:'Space Grotesk','Inter',sans-serif;--vx-font-mono:'JetBrains Mono','Fira Code',monospace;--vx-text-xs:0.75rem;--vx-text-sm:0.8125rem;--vx-text-base:0.9375rem;--vx-text-lg:1.125rem;--vx-text-xl:1.375rem;--vx-text-2xl:1.625rem;--vx-text-3xl:2rem;--vx-text-4xl:2.5rem;--vx-text-5xl:3.25rem;--vx-text-6xl:4rem;--vx-space-1:0.25rem;--vx-space-2:0.5rem;--vx-space-3:0.75rem;--vx-space-4:1rem;--vx-space-5:1.25rem;--vx-space-6:1.5rem;--vx-space-8:2rem;--vx-space-10:2.5rem;--vx-space-12:3rem;--vx-space-16:4rem;--vx-radius-sm:0.375rem;--vx-radius-md:0.625rem;--vx-radius-lg:0.875rem;--vx-radius-xl:1.125rem;--vx-radius-full:9999px;--vx-shadow-md:0 4px 12px rgba(0,0,0,0.4);--vx-shadow-lg:0 8px 32px rgba(0,0,0,0.5);--vx-shadow-xl:0 16px 64px rgba(0,0,0,0.6);--vx-shadow-glow:0 0 40px rgba(var(--vx-cyan-rgb),0.15);--vx-shadow-inset:inset 0 1px 0 rgba(255,255,255,0.05);--vx-transition-fast:150ms cubic-bezier(0.4,0,0.2,1);--vx-transition-base:250ms cubic-bezier(0.4,0,0.2,1);--vx-transition-spring:500ms cubic-bezier(0.34,1.56,0.64,1);--vx-z-sticky:200;--vx-z-overlay:300;--vx-z-modal:400;--vx-z-max:9999;--vx-nav-height:72px;--vx-max-width:1400px;--vx-sidebar-width:320px}
+    html.light{--vx-bg-primary:#f0f2ff;--vx-bg-secondary:#e8eaf6;--vx-bg-tertiary:#dde0f0;--vx-bg-card:rgba(255,255,255,0.7);--vx-bg-card-solid:#fff;--vx-bg-input:rgba(255,255,255,0.9);--vx-bg-hover:rgba(0,0,0,0.04);--vx-bg-active:rgba(0,0,0,0.08);--vx-text-primary:#0a0e27;--vx-text-secondary:#3a4070;--vx-text-tertiary:#6b73a0;--vx-text-muted:#94a0c0;--vx-border-primary:rgba(0,0,0,0.08);--vx-border-secondary:rgba(0,0,0,0.12);--vx-gradient-card:linear-gradient(135deg,rgba(255,255,255,0.8),rgba(255,255,255,0.5));--vx-shadow-md:0 4px 12px rgba(0,0,0,0.1);--vx-shadow-lg:0 8px 32px rgba(0,0,0,0.12)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--vx-font-primary);background:var(--vx-bg-primary);color:var(--vx-text-primary);line-height:1.6;overflow-x:hidden;min-height:100vh;-webkit-font-smoothing:antialiased}
+    ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:var(--vx-bg-secondary)}::-webkit-scrollbar-thumb{background:var(--vx-text-muted);border-radius:var(--vx-radius-full)}
+    ::selection{background:rgba(var(--vx-cyan-rgb),0.3);color:var(--vx-text-primary)}
+    a{color:inherit;text-decoration:none;transition:color var(--vx-transition-fast)}
+    img,svg{display:block;max-width:100%}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;font-size:inherit}
+    input,textarea,select{font-family:inherit;font-size:inherit;color:inherit;border:none;background:none;outline:none}
+    ul,ol{list-style:none}
+    /* LOADING */
+    #loading-screen{position:fixed;inset:0;z-index:var(--vx-z-max);display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--vx-bg-primary);transition:opacity 0.6s ease,visibility 0.6s ease}
+    #loading-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-container{position:relative;width:100px;height:100px;display:flex;align-items:center;justify-content:center}
+    .loader-ring{position:absolute;border-radius:50%;border:2px solid transparent}
+    .loader-ring:nth-child(1){width:100%;height:100%;border-top-color:var(--vx-cyan);animation:spin 1.2s linear infinite}
+    .loader-ring:nth-child(2){width:75%;height:75%;border-right-color:var(--vx-purple);animation:spin .9s linear infinite reverse}
+    .loader-ring:nth-child(3){width:50%;height:50%;border-bottom-color:var(--vx-cyan);animation:spin .6s linear infinite}
+    .loader-logo{font-family:var(--vx-font-display);font-size:2rem;font-weight:800;background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:pulse 2s ease-in-out infinite}
+    .loader-text{margin-top:2rem;color:var(--vx-text-secondary);font-size:var(--vx-text-sm);letter-spacing:.1em;text-transform:uppercase;animation:pulse 2s ease-in-out infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,20px) scale(.95)}75%{transform:translate(40px,30px) scale(1.02)}}
+    /* GLASS */
+    .glass-nav{background:rgba(6,9,24,.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--vx-border-primary)}
+    .glass-card{background:var(--vx-gradient-card);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);border:1px solid var(--vx-border-primary);border-radius:var(--vx-radius-xl);box-shadow:var(--vx-shadow-md),var(--vx-shadow-inset);transition:all var(--vx-transition-base)}
+    .glass-card:hover{border-color:var(--vx-border-secondary);box-shadow:var(--vx-shadow-lg),var(--vx-shadow-inset)}
+    html.light .glass-nav{background:rgba(240,242,255,.8)}
+    html.light .glass-card{background:var(--vx-gradient-card);box-shadow:var(--vx-shadow-md)}
+    /* NAV */
+    #main-nav{position:fixed;top:0;left:0;right:0;z-index:var(--vx-z-sticky);height:var(--vx-nav-height);transition:all var(--vx-transition-base)}
+    #main-nav.scrolled{box-shadow:var(--vx-shadow-lg)}
+    .nav-container{max-width:var(--vx-max-width);margin:0 auto;padding:0 var(--vx-space-6);height:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--vx-space-6)}
+    .nav-brand{display:flex;align-items:center;gap:var(--vx-space-3);flex-shrink:0}
+    .brand-icon{width:36px;height:36px;flex-shrink:0}
+    .brand-text{font-family:var(--vx-font-display);font-size:1.5rem;font-weight:700;letter-spacing:-.02em}
+    .brand-highlight{background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;align-items:center;gap:var(--vx-space-1)}
+    .nav-link{padding:var(--vx-space-2) var(--vx-space-4);border-radius:var(--vx-radius-md);font-size:var(--vx-text-sm);font-weight:500;color:var(--vx-text-secondary);transition:all var(--vx-transition-fast);position:relative;white-space:nowrap}
+    .nav-link:hover{color:var(--vx-text-primary);background:var(--vx-bg-hover)}
+    .nav-link.active{color:var(--vx-cyan);background:rgba(var(--vx-cyan-rgb),.08)}
+    .nav-link.active::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--vx-gradient-primary);border-radius:var(--vx-radius-full)}
+    .nav-actions{display:flex;align-items:center;gap:var(--vx-space-2);flex-shrink:0}
+    .nav-icon-btn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--vx-radius-md);color:var(--vx-text-secondary);transition:all var(--vx-transition-fast);position:relative}
+    .nav-icon-btn:hover{color:var(--vx-text-primary);background:var(--vx-bg-hover)}
+    .nav-icon-btn svg{width:20px;height:20px}
+    html.dark .icon-moon{display:none}html.dark .icon-sun{display:block}
+    html.light .icon-moon{display:block}html.light .icon-sun{display:none}
+    .notification-badge{position:absolute;top:4px;right:4px;width:18px;height:18px;background:var(--vx-false);color:#fff;font-size:10px;font-weight:700;border-radius:var(--vx-radius-full);display:flex;align-items:center;justify-content:center;border:2px solid var(--vx-bg-primary)}
+    .menu-toggle{display:none}
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--vx-space-2);padding:var(--vx-space-3) var(--vx-space-5);border-radius:var(--vx-radius-lg);font-weight:600;font-size:var(--vx-text-sm);transition:all var(--vx-transition-fast);white-space:nowrap;position:relative;overflow:hidden}
+    .btn svg{width:18px;height:18px;flex-shrink:0}
+    .btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity var(--vx-transition-fast)}
+    .btn:hover::before{opacity:1}.btn:active{transform:scale(.97)}
+    .btn-primary{background:var(--vx-gradient-primary);color:#fff;box-shadow:0 4px 15px rgba(var(--vx-cyan-rgb),.3)}
+    .btn-primary:hover{box-shadow:0 6px 25px rgba(var(--vx-cyan-rgb),.4);transform:translateY(-1px)}
+    .btn-ghost{background:var(--vx-bg-hover);color:var(--vx-text-secondary);border:1px solid var(--vx-border-primary)}
+    .btn-ghost:hover{background:var(--vx-bg-active);color:var(--vx-text-primary);border-color:var(--vx-border-secondary)}
+    .btn-success{background:linear-gradient(135deg,#34d399,#059669);color:#fff;box-shadow:0 4px 15px rgba(52,211,153,.3)}
+    .btn-success:hover{box-shadow:0 6px 25px rgba(52,211,153,.4);transform:translateY(-1px)}
+    .btn-danger{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;box-shadow:0 4px 15px rgba(239,68,68,.3)}
+    .btn-danger:hover{box-shadow:0 6px 25px rgba(239,68,68,.4);transform:translateY(-1px)}
+    .btn-sm{padding:var(--vx-space-2) var(--vx-space-3);font-size:var(--vx-text-xs)}
+    .btn-lg{padding:var(--vx-space-4) var(--vx-space-8);font-size:var(--vx-text-base);border-radius:var(--vx-radius-xl)}
+    .btn-lg svg{width:20px;height:20px}.btn-full{width:100%}
+    .btn-social{flex:1;padding:var(--vx-space-3) var(--vx-space-4)}.btn-social svg{width:20px;height:20px}
+    /* HERO */
+    .hero-section{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--vx-nav-height) + var(--vx-space-16)) var(--vx-space-6) var(--vx-space-16);overflow:hidden}
+    .hero-bg-effects{position:absolute;inset:0;pointer-events:none;z-index:0}
+    .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:orbFloat 20s ease-in-out infinite}
+    .hero-orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(var(--vx-cyan-rgb),.2),transparent 70%);top:-200px;right:-100px;animation-delay:0s}
+    .hero-orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(var(--vx-purple-rgb),.2),transparent 70%);bottom:-150px;left:-100px;animation-delay:-7s}
+    .hero-orb-3{width:400px;height:400px;background:radial-gradient(circle,rgba(var(--vx-blue-rgb),.15),transparent 70%);top:40%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
+    .hero-content{position:relative;z-index:1;max-width:900px;width:100%;text-align:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--vx-space-2);padding:var(--vx-space-2) var(--vx-space-4);background:rgba(var(--vx-cyan-rgb),.08);border:1px solid rgba(var(--vx-cyan-rgb),.2);border-radius:var(--vx-radius-full);font-size:var(--vx-text-sm);color:var(--vx-cyan);margin-bottom:var(--vx-space-8);animation:fadeInUp .8s ease}
+    .badge-dot{width:8px;height:8px;background:var(--vx-cyan);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+    .hero-title{font-family:var(--vx-font-display);font-size:var(--vx-text-6xl);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:var(--vx-space-6)}
+    .title-line{display:block;animation:fadeInUp .8s ease both}.title-line:nth-child(2){animation-delay:.15s}
+    .title-gradient{background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-subtitle{font-size:var(--vx-text-lg);color:var(--vx-text-secondary);max-width:600px;margin:0 auto var(--vx-space-10);line-height:1.7;animation:fadeInUp .8s ease .3s both}
+    /* QUICK VERIFY */
+    .quick-verify{padding:var(--vx-space-6);margin-bottom:var(--vx-space-6);animation:fadeInUp .8s ease .45s both;max-width:700px;margin-left:auto;margin-right:auto}
+    .verify-tabs{display:flex;gap:var(--vx-space-1);margin-bottom:var(--vx-space-5);background:var(--vx-bg-input);padding:var(--vx-space-1);border-radius:var(--vx-radius-lg);width:fit-content;margin-left:auto;margin-right:auto}
+    .verify-tab{display:flex;align-items:center;gap:var(--vx-space-2);padding:var(--vx-space-2) var(--vx-space-4);border-radius:var(--vx-radius-md);font-size:var(--vx-text-sm);font-weight:500;color:var(--vx-text-tertiary);transition:all var(--vx-transition-fast)}
+    .verify-tab:hover{color:var(--vx-text-secondary);background:var(--vx-bg-hover)}
+    .verify-tab.active{background:rgba(var(--vx-cyan-rgb),.12);color:var(--vx-cyan);box-shadow:0 2px 8px rgba(var(--vx-cyan-rgb),.15)}
+    .verify-tab svg{width:16px;height:16px}
+    .verify-input-container{margin-bottom:var(--vx-space-5)}
+    .verify-input-wrapper.hidden{display:none}
+    .verify-input{width:100%;padding:var(--vx-space-4) var(--vx-space-5);background:var(--vx-bg-input);border:1px solid var(--vx-border-primary);border-radius:var(--vx-radius-lg);color:var(--vx-text-primary);font-size:var(--vx-text-base);transition:all var(--vx-transition-fast);resize:vertical}
+    .verify-input::placeholder{color:var(--vx-text-muted)}
+    .verify-input:focus{border-color:rgba(var(--vx-cyan-rgb),.5);box-shadow:0 0 0 3px rgba(var(--vx-cyan-rgb),.1)}
+    .input-actions{display:flex;align-items:center;justify-content:space-between;margin-top:var(--vx-space-2)}
+    .char-count{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .upload-zone{border:2px dashed var(--vx-border-primary);border-radius:var(--vx-radius-lg);padding:var(--vx-space-10) var(--vx-space-6);text-align:center;cursor:pointer;transition:all var(--vx-transition-base)}
+    .upload-zone:hover,.upload-zone.drag-over{border-color:var(--vx-cyan);background:rgba(var(--vx-cyan-rgb),.04)}
+    .upload-zone svg{width:40px;height:40px;margin:0 auto var(--vx-space-3);color:var(--vx-text-muted)}
+    .upload-zone p{color:var(--vx-text-secondary);font-size:var(--vx-text-sm);margin-bottom:var(--vx-space-1)}
+    .upload-browse{color:var(--vx-cyan);font-weight:600}.upload-hint{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .verify-actions{display:flex;gap:var(--vx-space-3);justify-content:center;flex-wrap:wrap}
+    /* DUAL */
+    .dual-investigate{padding:var(--vx-space-6);max-width:700px;margin:0 auto;animation:fadeInUp .8s ease .55s both;text-align:center}
+    .section-title-sm{display:flex;align-items:center;justify-content:center;gap:var(--vx-space-2);font-size:var(--vx-text-lg);font-weight:700;margin-bottom:var(--vx-space-2)}
+    .section-title-sm svg{width:20px;height:20px;color:var(--vx-cyan)}
+    .dual-desc{color:var(--vx-text-secondary);font-size:var(--vx-text-sm);margin-bottom:var(--vx-space-5)}
+    .dual-buttons{display:flex;align-items:center;justify-content:center;gap:var(--vx-space-4);flex-wrap:wrap}
+    .dual-vs{font-family:var(--vx-font-display);font-size:var(--vx-text-xl);font-weight:800;color:var(--vx-text-muted);width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--vx-bg-input);border:1px solid var(--vx-border-primary)}
+    /* STATS */
+    .stats-bar{display:flex;align-items:center;justify-content:center;gap:var(--vx-space-8);padding:var(--vx-space-6) var(--vx-space-8);margin:0 auto var(--vx-space-16);max-width:900px;flex-wrap:wrap}
+    .stat-item{text-align:center}.stat-number{display:block;font-family:var(--vx-font-display);font-size:var(--vx-text-3xl);font-weight:800;background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+    .stat-label{font-size:var(--vx-text-sm);color:var(--vx-text-tertiary);font-weight:500}
+    .stat-divider{width:1px;height:40px;background:var(--vx-border-primary)}
+    /* FEATURES */
+    .features-section{padding:var(--vx-space-16) var(--vx-space-6);max-width:var(--vx-max-width);margin:0 auto}
+    .section-header{text-align:center;margin-bottom:var(--vx-space-12)}
+    .section-title{font-family:var(--vx-font-display);font-size:var(--vx-text-4xl);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--vx-space-3);display:flex;align-items:center;justify-content:center;gap:var(--vx-space-3)}
+    .section-subtitle{font-size:var(--vx-text-lg);color:var(--vx-text-secondary);max-width:600px;margin:0 auto}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--vx-space-5)}
+    .feature-card{padding:var(--vx-space-6);display:flex;flex-direction:column;gap:var(--vx-space-3);transition:all var(--vx-transition-spring)}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:var(--vx-shadow-xl),var(--vx-shadow-glow)}
+    .feature-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:var(--vx-radius-lg);background:rgba(255,255,255,.04);border:1px solid var(--vx-border-primary);color:var(--accent,var(--vx-cyan));margin-bottom:var(--vx-space-1)}
+    .feature-icon svg{width:24px;height:24px}.feature-card h3{font-size:var(--vx-text-lg);font-weight:700}.feature-card p{font-size:var(--vx-text-sm);color:var(--vx-text-secondary);line-height:1.6}
+    /* FEED */
+    .live-feed-section{padding:var(--vx-space-16) var(--vx-space-6);max-width:var(--vx-max-width);margin:0 auto}
+    .live-dot{width:10px;height:10px;background:var(--vx-true);border-radius:50%;display:inline-block;animation:pulse 1.5s ease-in-out infinite;box-shadow:0 0 10px rgba(52,211,153,.5)}
+    .view-all-link{color:var(--vx-cyan);font-size:var(--vx-text-sm);font-weight:600}
+    .feed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--vx-space-5)}
+    .feed-card{padding:var(--vx-space-5);display:flex;flex-direction:column;gap:var(--vx-space-3);transition:all var(--vx-transition-base);cursor:pointer}
+    .feed-card:hover{transform:translateY(-2px)}
+    .feed-verdict{display:inline-flex;align-items:center;gap:var(--vx-space-1);padding:var(--vx-space-1) var(--vx-space-3);border-radius:var(--vx-radius-full);font-size:var(--vx-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.05em;width:fit-content}
+    .feed-verdict.true{background:rgba(52,211,153,.12);color:var(--vx-true)}
+    .feed-verdict.likely-true{background:rgba(110,231,183,.12);color:var(--vx-likely-true)}
+    .feed-verdict.partially-true{background:rgba(251,191,36,.12);color:var(--vx-partially-true)}
+    .feed-verdict.misleading{background:rgba(251,146,60,.12);color:var(--vx-misleading)}
+    .feed-verdict.unverified{background:rgba(148,163,184,.12);color:var(--vx-unverified)}
+    .feed-verdict.likely-false{background:rgba(248,113,113,.12);color:var(--vx-likely-false)}
+    .feed-verdict.false{background:rgba(239,68,68,.12);color:var(--vx-false)}
+    .feed-card h4{font-size:var(--vx-text-base);font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .feed-meta{display:flex;align-items:center;gap:var(--vx-space-3);font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .feed-confidence{display:flex;align-items:center;gap:var(--vx-space-1)}
+    .confidence-bar{width:60px;height:4px;background:var(--vx-bg-input);border-radius:var(--vx-radius-full);overflow:hidden}
+    .confidence-fill{height:100%;border-radius:var(--vx-radius-full);transition:width 1s ease}
+    /* MAP */
+    .map-preview-section{padding:var(--vx-space-16) var(--vx-space-6);max-width:var(--vx-max-width);margin:0 auto}
+    .map-container{position:relative;overflow:hidden;min-height:400px}
+    .map-placeholder{position:relative;width:100%;height:400px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 40%,rgba(var(--vx-cyan-rgb),.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(var(--vx-purple-rgb),.08) 0%,transparent 50%),var(--vx-bg-card-solid)}
+    .world-map-svg{width:100%;height:100%;opacity:.6}
+    .map-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,9,24,.4);z-index:2}
+    /* PAGES */
+    .page{display:none;padding:calc(var(--vx-nav-height) + var(--vx-space-10)) var(--vx-space-6) var(--vx-space-16);max-width:var(--vx-max-width);margin:0 auto;animation:fadeIn .4s ease}
+    .page.active{display:block}
+    .page-header{margin-bottom:var(--vx-space-10)}
+    .page-title{font-family:var(--vx-font-display);font-size:var(--vx-text-4xl);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--vx-space-2)}
+    .page-subtitle{font-size:var(--vx-text-lg);color:var(--vx-text-secondary)}
+    /* FORMS */
+    .form-group{margin-bottom:var(--vx-space-5)}
+    .form-label{display:block;font-size:var(--vx-text-sm);font-weight:600;color:var(--vx-text-secondary);margin-bottom:var(--vx-space-2)}
+    .form-input{width:100%;padding:var(--vx-space-3) var(--vx-space-4);background:var(--vx-bg-input);border:1px solid var(--vx-border-primary);border-radius:var(--vx-radius-lg);color:var(--vx-text-primary);font-size:var(--vx-text-base);transition:all var(--vx-transition-fast)}
+    .form-input::placeholder{color:var(--vx-text-muted)}
+    .form-input:focus{border-color:rgba(var(--vx-cyan-rgb),.5);box-shadow:0 0 0 3px rgba(var(--vx-cyan-rgb),.1)}
+    .form-textarea{resize:vertical;min-height:120px;line-height:1.6}
+    .form-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b73a0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:40px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--vx-space-4)}
+    .form-actions{margin-top:var(--vx-space-6)}
+    .upload-zone-sm{border:2px dashed var(--vx-border-primary);border-radius:var(--vx-radius-lg);padding:var(--vx-space-6);text-align:center;cursor:pointer;transition:all var(--vx-transition-base)}
+    .upload-zone-sm:hover{border-color:var(--vx-cyan);background:rgba(var(--vx-cyan-rgb),.04)}
+    .upload-zone-sm svg{width:28px;height:28px;margin:0 auto var(--vx-space-2);color:var(--vx-text-muted)}
+    .upload-zone-sm p{font-size:var(--vx-text-sm);color:var(--vx-text-secondary)}
+    /* INVESTIGATE */
+    .investigate-layout{display:grid;grid-template-columns:1fr var(--vx-sidebar-width);gap:var(--vx-space-6)}
+    .investigation-form{padding:var(--vx-space-8)}
+    .investigation-form h2{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:700;margin-bottom:var(--vx-space-6)}
+    .sidebar-card{padding:var(--vx-space-5);margin-bottom:var(--vx-space-5)}
+    .sidebar-card h3{font-size:var(--vx-text-base);font-weight:700;margin-bottom:var(--vx-space-4)}
+    .recent-list{display:flex;flex-direction:column;gap:var(--vx-space-3)}
+    .recent-item{padding:var(--vx-space-3);border-radius:var(--vx-radius-md);background:var(--vx-bg-hover);cursor:pointer;transition:all var(--vx-transition-fast)}
+    .recent-item:hover{background:var(--vx-bg-active)}
+    .recent-item-title{font-size:var(--vx-text-sm);font-weight:600;margin-bottom:var(--vx-space-1);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+    .recent-item-meta{font-size:var(--vx-text-xs);color:var(--vx-text-muted);display:flex;align-items:center;gap:var(--vx-space-2)}
+    .sidebar-stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--vx-space-3)}
+    .sidebar-stat{text-align:center;padding:var(--vx-space-3);background:var(--vx-bg-hover);border-radius:var(--vx-radius-md)}
+    .sidebar-stat-value{display:block;font-family:var(--vx-font-display);font-size:var(--vx-text-xl);font-weight:700}
+    .sidebar-stat-label{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .stat-true{color:var(--vx-true)}.stat-false{color:var(--vx-false)}.stat-mixed{color:var(--vx-partially-true)}
+    /* BATTLE */
+    .battle-setup{padding:var(--vx-space-8);margin-bottom:var(--vx-space-8);text-align:center}
+    .battle-setup h2{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:700;margin-bottom:var(--vx-space-2)}
+    .battle-setup p{color:var(--vx-text-secondary);margin-bottom:var(--vx-space-6)}
+    .battle-setup .form-group{max-width:600px;margin:0 auto var(--vx-space-6);text-align:left}
+    .battle-arena{padding:var(--vx-space-8);margin-bottom:var(--vx-space-8)}
+    .battle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vx-space-8);flex-wrap:wrap;gap:var(--vx-space-4)}
+    .battle-claim-display h3{font-size:var(--vx-text-lg);font-weight:600;max-width:600px}
+    .battle-timer{font-family:var(--vx-font-mono);font-size:var(--vx-text-2xl);font-weight:700;color:var(--vx-cyan);padding:var(--vx-space-2) var(--vx-space-4);background:rgba(var(--vx-cyan-rgb),.08);border-radius:var(--vx-radius-md)}
+    .battle-agents{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--vx-space-5);align-items:start}
+    .agent-card{padding:var(--vx-space-5);border-radius:var(--vx-radius-lg);border:1px solid var(--vx-border-primary);background:var(--vx-bg-hover)}
+    .agent-alpha{border-color:rgba(var(--vx-true-rgb),.3);background:rgba(var(--vx-true-rgb),.04)}
+    .agent-beta{border-color:rgba(var(--vx-false-rgb),.3);background:rgba(var(--vx-false-rgb),.04)}
+    .agent-header{display:flex;align-items:center;gap:var(--vx-space-3);margin-bottom:var(--vx-space-4)}
+    .agent-avatar{width:44px;height:44px;border-radius:var(--vx-radius-lg);display:flex;align-items:center;justify-content:center;font-family:var(--vx-font-display);font-size:var(--vx-text-xl);font-weight:800;flex-shrink:0}
+    .agent-alpha .agent-avatar{background:rgba(var(--vx-true-rgb),.15);color:var(--vx-true)}
+    .agent-beta .agent-avatar{background:rgba(var(--vx-false-rgb),.15);color:var(--vx-false)}
+    .agent-info{flex:1}.agent-info h4{font-size:var(--vx-text-base);font-weight:700}.agent-role{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .agent-score{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:800}
+    .agent-alpha .agent-score{color:var(--vx-true)}.agent-beta .agent-score{color:var(--vx-false)}
+    .agent-evidence{display:flex;flex-direction:column;gap:var(--vx-space-3)}
+    .battle-vs{display:flex;align-items:center;justify-content:center;padding-top:var(--vx-space-8)}
+    .vs-circle{width:56px;height:56px;border-radius:50%;background:var(--vx-gradient-primary);display:flex;align-items:center;justify-content:center;font-family:var(--vx-font-display);font-size:var(--vx-text-sm);font-weight:800;color:#fff;box-shadow:0 0 30px rgba(var(--vx-cyan-rgb),.3);animation:pulse 2s ease-in-out infinite}
+    .battle-judge{margin-top:var(--vx-space-8);padding:var(--vx-space-6);text-align:center;border-color:rgba(var(--vx-cyan-rgb),.2)}
+    .judge-header{display:flex;align-items:center;justify-content:center;gap:var(--vx-space-3);margin-bottom:var(--vx-space-4)}
+    .judge-icon{font-size:2rem}.judge-header h3{font-family:var(--vx-font-display);font-size:var(--vx-text-xl);font-weight:700}
+    .judge-verdict{font-size:var(--vx-text-lg);color:var(--vx-text-secondary);line-height:1.6}
+    .pulse-loader{width:24px;height:24px;border:3px solid var(--vx-border-primary);border-top-color:var(--vx-cyan);border-radius:50%;animation:spin .8s linear infinite}
+    .evidence-loading{display:flex;align-items:center;gap:var(--vx-space-3);color:var(--vx-text-muted);font-size:var(--vx-text-sm);padding:var(--vx-space-4)}
+    .past-battles{margin-top:var(--vx-space-10)}.battles-list{display:flex;flex-direction:column;gap:var(--vx-space-3)}
+    .battle-history-item{display:flex;align-items:center;gap:var(--vx-space-4);padding:var(--vx-space-4) var(--vx-space-5);border-radius:var(--vx-radius-lg);background:var(--vx-bg-hover);cursor:pointer;transition:all var(--vx-transition-fast)}
+    .battle-history-item:hover{background:var(--vx-bg-active)}
+    .battle-history-claim{flex:1;font-size:var(--vx-text-sm);font-weight:500;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+    .battle-history-winner{font-size:var(--vx-text-xs);font-weight:700;padding:var(--vx-space-1) var(--vx-space-3);border-radius:var(--vx-radius-full);text-transform:uppercase}
+    .battle-history-winner.alpha{background:rgba(var(--vx-true-rgb),.12);color:var(--vx-true)}
+    .battle-history-winner.beta{background:rgba(var(--vx-false-rgb),.12);color:var(--vx-false)}
+    /* HEATMAP */
+    .heatmap-controls{display:flex;align-items:center;justify-content:space-between;padding:var(--vx-space-4) var(--vx-space-6);margin-bottom:var(--vx-space-6);flex-wrap:wrap;gap:var(--vx-space-4)}
+    .heatmap-filters{display:flex;gap:var(--vx-space-3)}.heatmap-filters .form-input{width:auto;min-width:160px}
+    .heatmap-legend{display:flex;align-items:center;gap:var(--vx-space-4);font-size:var(--vx-text-sm);color:var(--vx-text-secondary)}
+    .legend-item{display:flex;align-items:center;gap:var(--vx-space-2)}.legend-color{width:12px;height:12px;border-radius:3px}
+    .heatmap-container{padding:var(--vx-space-6);margin-bottom:var(--vx-space-6);min-height:500px}
+    #world-heatmap{width:100%;height:500px;position:relative;background:radial-gradient(circle at 25% 35%,rgba(239,68,68,.3) 0%,transparent 25%),radial-gradient(circle at 55% 25%,rgba(251,191,36,.25) 0%,transparent 20%),radial-gradient(circle at 75% 55%,rgba(239,68,68,.2) 0%,transparent 30%),radial-gradient(circle at 40% 65%,rgba(52,211,153,.2) 0%,transparent 20%),radial-gradient(circle at 15% 70%,rgba(251,146,60,.2) 0%,transparent 15%),radial-gradient(circle at 85% 30%,rgba(251,191,36,.2) 0%,transparent 20%),var(--vx-bg-card-solid);border-radius:var(--vx-radius-lg);overflow:hidden}
+    #world-heatmap::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px}
+    .heatmap-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--vx-space-4)}
+    .heatmap-stat-card{padding:var(--vx-space-5);text-align:center}
+    .heatmap-stat-card h4{font-size:var(--vx-text-sm);color:var(--vx-text-tertiary);margin-bottom:var(--vx-space-2)}
+    .heatmap-stat-number{font-family:var(--vx-font-display);font-size:var(--vx-text-3xl);font-weight:800;background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    /* REPORTS */
+    .reports-layout{display:grid;grid-template-columns:380px 1fr;gap:var(--vx-space-6);min-height:600px}
+    .reports-list{display:flex;flex-direction:column;gap:var(--vx-space-3);max-height:700px;overflow-y:auto;padding-right:var(--vx-space-2)}
+    .report-item{padding:var(--vx-space-4) var(--vx-space-5);border-radius:var(--vx-radius-lg);background:var(--vx-bg-hover);cursor:pointer;transition:all var(--vx-transition-fast);border:1px solid transparent}
+    .report-item:hover{background:var(--vx-bg-active);border-color:var(--vx-border-primary)}
+    .report-item.active{background:rgba(var(--vx-cyan-rgb),.06);border-color:rgba(var(--vx-cyan-rgb),.2)}
+    .report-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vx-space-2)}
+    .report-item-title{font-size:var(--vx-text-sm);font-weight:600;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+    .report-item-date{font-size:var(--vx-text-xs);color:var(--vx-text-muted);white-space:nowrap;margin-left:var(--vx-space-2)}
+    .report-item-excerpt{font-size:var(--vx-text-xs);color:var(--vx-text-tertiary);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.5}
+    .report-detail{padding:var(--vx-space-8);min-height:500px}
+    .report-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:400px;color:var(--vx-text-muted);text-align:center}
+    .report-empty svg{width:64px;height:64px;margin-bottom:var(--vx-space-4);opacity:.3}
+    .report-content h2{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:700;margin-bottom:var(--vx-space-6)}
+    .report-section{margin-bottom:var(--vx-space-6)}
+    .report-section h3{font-size:var(--vx-text-base);font-weight:700;color:var(--vx-cyan);margin-bottom:var(--vx-space-3)}
+    .report-section p,.report-section li{font-size:var(--vx-text-sm);color:var(--vx-text-secondary);line-height:1.7}
+    .report-section ul{list-style:disc;padding-left:var(--vx-space-5)}.report-section li{margin-bottom:var(--vx-space-2)}
+    .confidence-gauge{display:flex;align-items:center;gap:var(--vx-space-4);padding:var(--vx-space-4);background:var(--vx-bg-hover);border-radius:var(--vx-radius-lg);margin-bottom:var(--vx-space-4)}
+    .gauge-circle{width:80px;height:80px;border-radius:50%;background:conic-gradient(var(--vx-cyan) var(--gauge-percent,0%),var(--vx-bg-input) 0%);display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+    .gauge-circle::before{content:'';position:absolute;width:64px;height:64px;background:var(--vx-bg-card-solid);border-radius:50%}
+    .gauge-value{position:relative;z-index:1;font-family:var(--vx-font-display);font-size:var(--vx-text-lg);font-weight:800;color:var(--vx-cyan)}
+    .gauge-label{font-size:var(--vx-text-sm);color:var(--vx-text-secondary)}
+    /* COMMUNITY */
+    .community-layout{display:grid;grid-template-columns:1fr 300px;gap:var(--vx-space-6)}
+    .community-feed{display:flex;flex-direction:column;gap:var(--vx-space-4)}
+    .community-post{padding:var(--vx-space-5) var(--vx-space-6);transition:all var(--vx-transition-base)}
+    .community-post:hover{border-color:var(--vx-border-secondary)}
+    .post-header{display:flex;align-items:center;gap:var(--vx-space-3);margin-bottom:var(--vx-space-3)}
+    .post-avatar{width:40px;height:40px;border-radius:50%;background:var(--vx-gradient-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:var(--vx-text-sm);color:#fff;flex-shrink:0}
+    .post-user-info{flex:1}.post-username{font-size:var(--vx-text-sm);font-weight:600}.post-time{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .post-content{font-size:var(--vx-text-base);line-height:1.6;margin-bottom:var(--vx-space-4)}
+    .post-actions{display:flex;align-items:center;gap:var(--vx-space-4)}
+    .post-action{display:flex;align-items:center;gap:var(--vx-space-1);padding:var(--vx-space-1) var(--vx-space-3);border-radius:var(--vx-radius-md);font-size:var(--vx-text-xs);color:var(--vx-text-tertiary);transition:all var(--vx-transition-fast)}
+    .post-action:hover{background:var(--vx-bg-hover);color:var(--vx-text-secondary)}.post-action svg{width:16px;height:16px}
+    .post-action.voted-accurate{color:var(--vx-true);background:rgba(var(--vx-true-rgb),.08)}
+    .post-action.voted-inaccurate{color:var(--vx-false);background:rgba(var(--vx-false-rgb),.08)}
+    .contributors-list{display:flex;flex-direction:column;gap:var(--vx-space-3)}
+    .contributor-item{display:flex;align-items:center;gap:var(--vx-space-3)}
+    .contributor-avatar{width:32px;height:32px;border-radius:50%;background:var(--vx-gradient-primary);display:flex;align-items:center;justify-content:center;font-size:var(--vx-text-xs);font-weight:700;color:#fff;flex-shrink:0}
+    .contributor-info{flex:1}.contributor-name{font-size:var(--vx-text-sm);font-weight:600}.contributor-score{font-size:var(--vx-text-xs);color:var(--vx-text-muted)}
+    .trending-tags{display:flex;flex-wrap:wrap;gap:var(--vx-space-2)}
+    .trending-tag{padding:var(--vx-space-1) var(--vx-space-3);background:var(--vx-bg-hover);border-radius:var(--vx-radius-full);font-size:var(--vx-text-xs);color:var(--vx-text-secondary);font-weight:500;transition:all var(--vx-transition-fast);cursor:pointer}
+    .trending-tag:hover{background:rgba(var(--vx-cyan-rgb),.1);color:var(--vx-cyan)}
+    /* RESULTS */
+    .results-container{max-width:900px;margin:0 auto}
+    .result-verdict-card{padding:var(--vx-space-8);text-align:center;margin-bottom:var(--vx-space-6)}
+    .result-verdict-badge{display:inline-flex;align-items:center;gap:var(--vx-space-2);padding:var(--vx-space-3) var(--vx-space-6);border-radius:var(--vx-radius-full);font-size:var(--vx-text-lg);font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:var(--vx-space-4)}
+    .result-verdict-badge.true{background:rgba(var(--vx-true-rgb),.12);color:var(--vx-true)}
+    .result-verdict-badge.likely-true{background:rgba(110,231,183,.12);color:var(--vx-likely-true)}
+    .result-verdict-badge.partially-true{background:rgba(251,191,36,.12);color:var(--vx-partially-true)}
+    .result-verdict-badge.misleading{background:rgba(251,146,60,.12);color:var(--vx-misleading)}
+    .result-verdict-badge.unverified{background:rgba(148,163,184,.12);color:var(--vx-unverified)}
+    .result-verdict-badge.likely-false{background:rgba(248,113,113,.12);color:var(--vx-likely-false)}
+    .result-verdict-badge.false{background:rgba(var(--vx-false-rgb),.12);color:var(--vx-false)}
+    .result-claim-text{font-size:var(--vx-text-lg);color:var(--vx-text-secondary);line-height:1.6;margin-bottom:var(--vx-space-6)}
+    .result-scores{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--vx-space-4);margin-top:var(--vx-space-6)}
+    .result-score-item{text-align:center;padding:var(--vx-space-4);background:var(--vx-bg-hover);border-radius:var(--vx-radius-lg)}
+    .result-score-value{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:800;background:var(--vx-gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .result-score-label{font-size:var(--vx-text-xs);color:var(--vx-text-muted);margin-top:var(--vx-space-1)}
+    .result-section-card{padding:var(--vx-space-6);margin-bottom:var(--vx-space-4)}
+    .result-section-card h3{font-size:var(--vx-text-lg);font-weight:700;margin-bottom:var(--vx-space-4);display:flex;align-items:center;gap:var(--vx-space-2)}
+    .result-section-card h3 svg{width:20px;height:20px;color:var(--vx-cyan)}
+    .evidence-list{display:flex;flex-direction:column;gap:var(--vx-space-3)}
+    .evidence-item{padding:var(--vx-space-4);background:var(--vx-bg-hover);border-radius:var(--vx-radius-md);border-left:3px solid var(--vx-cyan)}
+    .evidence-item.contradicting{border-left-color:var(--vx-false)}
+    .evidence-source{font-size:var(--vx-text-xs);color:var(--vx-text-muted);margin-bottom:var(--vx-space-1)}
+    .evidence-text{font-size:var(--vx-text-sm);color:var(--vx-text-secondary);line-height:1.5}
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;z-index:var(--vx-z-modal);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:all var(--vx-transition-base);padding:var(--vx-space-4)}
+    .modal-overlay.active{opacity:1;visibility:visible}
+    .modal{width:100%;max-width:440px;padding:var(--vx-space-8);position:relative;transform:translateY(20px) scale(.95);transition:transform var(--vx-transition-spring)}
+    .modal-overlay.active .modal{transform:translateY(0) scale(1)}
+    .modal-close{position:absolute;top:var(--vx-space-4);right:var(--vx-space-4);width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--vx-radius-md);color:var(--vx-text-tertiary);transition:all var(--vx-transition-fast)}
+    .modal-close:hover{background:var(--vx-bg-hover);color:var(--vx-text-primary)}.modal-close svg{width:20px;height:20px}
+    .modal-header{text-align:center;margin-bottom:var(--vx-space-6)}
+    .modal-header h2{font-family:var(--vx-font-display);font-size:var(--vx-text-2xl);font-weight:700;margin-bottom:var(--vx-space-1)}
+    .modal-header p{color:var(--vx-text-secondary);font-size:var(--vx-text-sm)}
+    .auth-tabs{display:flex;gap:var(--vx-space-1);margin-bottom:var(--vx-space-6);background:var(--vx-bg-input);padding:var(--vx-space-1);border-radius:var(--vx-radius-lg)}
+    .auth-tab{flex:1;padding:var(--vx-space-3);border-radius:var(--vx-radius-md);font-size:var(--vx-text-sm);font-weight:600;color:var(--vx-text-tertiary);text-align:center;transition:all var(--vx-transition-fast)}
+    .auth-tab:hover{color:var(--vx-text-secondary)}.auth-tab.active{background:rgba(var(--vx-cyan-rgb),.12);color:var(--vx-cyan)}
+    .auth-form{display:flex;flex-direction:column;gap:var(--vx-space-4)}
+    .auth-divider{display:flex;align-items:center;gap:var(--vx-space-4);margin:var(--vx-space-5) 0;color:var(--vx-text-muted);font-size:var(--vx-text-xs)}
+    .auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--vx-border-primary)}
+    .auth-social{display:flex;gap:var(--vx-space-3)}
+    /* NOTIFICATIONS */
+    .notifications-panel{position:fixed;top:var(--vx-nav-height);right:var(--vx-space-4);width:380px;max-height:500px;overflow-y:auto;z-index:100;padding:0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all var(--vx-transition-base)}
+    .notifications-panel.active{opacity:1;visibility:visible;transform:translateY(0)}
+    .notifications-header{display:flex;align-items:center;justify-content:space-between;padding:var(--vx-space-4) var(--vx-space-5);border-bottom:1px solid var(--vx-border-primary);position:sticky;top:0;background:var(--vx-bg-card-solid);z-index:1}
+    .notifications-header h3{font-size:var(--vx-text-base);font-weight:700}
+    .notifications-list{display:flex;flex-direction:column}
+    .notification-item{display:flex;gap:var(--vx-space-3);padding:var(--vx-space-4) var(--vx-space-5);border-bottom:1px solid var(--vx-border-primary);cursor:pointer;transition:all var(--vx-transition-fast)}
+    .notification-item:hover{background:var(--vx-bg-hover)}.notification-item.unread{background:rgba(var(--vx-cyan-rgb),.03)}
+    .notification-icon{width:36px;height:36px;border-radius:var(--vx-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:var(--vx-text-base)}
+    .notification-icon.info{background:rgba(var(--vx-cyan-rgb),.1);color:var(--vx-cyan)}
+    .notification-icon.success{background:rgba(var(--vx-true-rgb),.1);color:var(--vx-true)}
+    .notification-icon.warning{background:rgba(251,191,36,.1);color:var(--vx-partially-true)}
+    .notification-icon.error{background:rgba(var(--vx-false-rgb),.1);color:var(--vx-false)}
+    .notification-content{flex:1}.notification-title{font-size:var(--vx-text-sm);font-weight:600;margin-bottom:var(--vx-space-1)}
+    .notification-desc{font-size:var(--vx-text-xs);color:var(--vx-text-tertiary);line-height:1.4}
+    .notification-time{font-size:var(--vx-text-xs);color:var(--vx-text-muted);white-space:nowrap}
+    /* MOBILE MENU */
+    .mobile-menu{position:fixed;top:0;right:0;width:300px;height:100vh;z-index:var(--vx-z-overlay);background:var(--vx-bg-card-solid);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-left:1px solid var(--vx-border-primary);transform:translateX(100%);transition:transform var(--vx-transition-base);display:flex;flex-direction:column}
+    .mobile-menu.active{transform:translateX(0)}
+    .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:var(--vx-space-4) var(--vx-space-5);border-bottom:1px solid var(--vx-border-primary);height:var(--vx-nav-height)}
+    .mobile-menu-links{display:flex;flex-direction:column;padding:var(--vx-space-4);gap:var(--vx-space-1)}
+    .mobile-nav-link{padding:var(--vx-space-3) var(--vx-space-4);border-radius:var(--vx-radius-md);font-size:var(--vx-text-base);font-weight:500;color:var(--vx-text-secondary);transition:all var(--vx-transition-fast)}
+    .mobile-nav-link:hover{background:var(--vx-bg-hover);color:var(--vx-text-primary)}
+    .mobile-nav-link.active{color:var(--vx-cyan);background:rgba(var(--vx-cyan-rgb),.08)}
+    .mobile-menu-backdrop{position:fixed;inset:0;z-index:299;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:all var(--vx-transition-base)}
+    .mobile-menu-backdrop.active{opacity:1;visibility:visible}
+    /* FOOTER */
+    #main-footer{background:var(--vx-bg-secondary);border-top:1px solid var(--vx-border-primary);padding:var(--vx-space-16) var(--vx-space-6) var(--vx-space-6)}
+    .footer-container{max-width:var(--vx-max-width);margin:0 auto;display:grid;grid-template-columns:1.5fr 2fr;gap:var(--vx-space-12);margin-bottom:var(--vx-space-10)}
+    .footer-brand .nav-brand{margin-bottom:var(--vx-space-4)}
+    .footer-desc{font-size:var(--vx-text-sm);color:var(--vx-text-secondary);line-height:1.6;max-width:320px}
+    .footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--vx-space-6)}
+    .footer-col h4{font-size:var(--vx-text-sm);font-weight:700;margin-bottom:var(--vx-space-4);color:var(--vx-text-primary)}
+    .footer-col a{display:block;font-size:var(--vx-text-sm);color:var(--vx-text-tertiary);padding:var(--vx-space-1) 0;transition:color var(--vx-transition-fast)}
+    .footer-col a:hover{color:var(--vx-cyan)}
+    .footer-bottom{max-width:var(--vx-max-width);margin:0 auto;padding-top:var(--vx-space-6);border-top:1px solid var(--vx-border-primary);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--vx-space-4)}
+    .footer-bottom p{font-size:var(--vx-text-sm);color:var(--vx-text-muted)}
+    .footer-lang select{padding:var(--vx-space-2) var(--vx-space-3);background:var(--vx-bg-input);border:1px solid var(--vx-border-primary);border-radius:var(--vx-radius-md);color:var(--vx-text-secondary);font-size:var(--vx-text-sm);cursor:pointer}
+    /* RESPONSIVE */
+    @media(max-width:1200px){.features-grid{grid-template-columns:repeat(2,1fr)}.feed-grid{grid-template-columns:repeat(2,1fr)}.investigate-layout{grid-template-columns:1fr}.investigate-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:var(--vx-space-5)}.reports-layout{grid-template-columns:300px 1fr}.community-layout{grid-template-columns:1fr}.community-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:var(--vx-space-5)}}
+    @media(max-width:900px){:root{--vx-nav-height:64px;--vx-text-6xl:3rem;--vx-text-5xl:2.5rem;--vx-text-4xl:2rem}.nav-links{display:none}.menu-toggle{display:flex}.hero-title{font-size:var(--vx-text-5xl)}.stats-bar{gap:var(--vx-space-5)}.stat-divider{display:none}.features-grid{grid-template-columns:repeat(2,1fr)}.feed-grid{grid-template-columns:1fr}.battle-agents{grid-template-columns:1fr}.battle-vs{padding:var(--vx-space-4) 0}.heatmap-stats{grid-template-columns:repeat(2,1fr)}.reports-layout{grid-template-columns:1fr}.reports-list{max-height:300px}.footer-container{grid-template-columns:1fr;gap:var(--vx-space-8)}.footer-links{grid-template-columns:repeat(2,1fr)}.result-scores{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){:root{--vx-text-6xl:2.25rem;--vx-text-5xl:1.875rem;--vx-text-4xl:1.5rem}.nav-container{padding:0 var(--vx-space-4)}.hero-section{padding:calc(var(--vx-nav-height) + var(--vx-space-8)) var(--vx-space-4) var(--vx-space-10)}.hero-title{font-size:var(--vx-text-5xl)}.hero-subtitle{font-size:var(--vx-text-base)}.quick-verify{padding:var(--vx-space-4)}.verify-tabs{width:100%;overflow-x:auto}.verify-actions{flex-direction:column}.verify-actions .btn{width:100%}.dual-buttons{flex-direction:column}.dual-vs{transform:rotate(90deg)}.stats-bar{flex-direction:column;gap:var(--vx-space-4)}.stat-item{display:flex;align-items:center;gap:var(--vx-space-3)}.stat-number{font-size:var(--vx-text-2xl)}.features-grid{grid-template-columns:1fr}.features-section,.live-feed-section,.map-preview-section{padding:var(--vx-space-10) var(--vx-space-4)}.investigate-sidebar{grid-template-columns:1fr}.community-sidebar{grid-template-columns:1fr}.heatmap-stats{grid-template-columns:1fr 1fr}.heatmap-controls{flex-direction:column;align-items:stretch}.heatmap-filters{flex-direction:column}.heatmap-filters .form-input{width:100%}.form-row{grid-template-columns:1fr}.footer-links{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;text-align:center}.notifications-panel{width:calc(100% - var(--vx-space-8));right:var(--vx-space-4)}.mobile-menu{width:100%}.result-scores{grid-template-columns:1fr 1fr}.agent-header{flex-wrap:wrap}}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loader-container">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-logo">V</div>
+            </div>
+            <p class="loader-text">Initializing VerifyX Engine...</p>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="main-nav" class="glass-nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="url(#brandGrad)" stroke-width="2"/>
+                            <path d="M12 20L18 26L28 14" stroke="url(#brandGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#00d4ff"/>
+                                    <stop offset="100%" stop-color="#7b2ff7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="brand-text">Verify<span class="brand-highlight">X</span></span>
+                </div>
+                <div class="nav-links" id="nav-links">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="investigate">Investigate</a>
+                    <a href="#" class="nav-link" data-page="truth-battle">Truth Battle</a>
+                    <a href="#" class="nav-link" data-page="heatmap">Heatmap</a>
+                    <a href="#" class="nav-link" data-page="reports">Reports</a>
+                    <a href="#" class="nav-link" data-page="community">Community</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                    <button class="nav-icon-btn" id="notifications-btn" title="Notifications">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="btn btn-primary btn-sm" id="auth-btn">Sign In</button>
+                    <button class="nav-icon-btn menu-toggle" id="menu-toggle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- HOME PAGE -->
+            <section id="page-home" class="page active">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-bg-effects">
+                        <div class="hero-orb hero-orb-1"></div>
+                        <div class="hero-orb hero-orb-2"></div>
+                        <div class="hero-orb hero-orb-3"></div>
+                        <div class="hero-grid"></div>
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span>
+                            AI-Powered Truth Verification
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="title-line">Truth Beyond</span>
+                            <span class="title-line title-gradient">The Noise</span>
+                        </h1>
+                        <p class="hero-subtitle">VerifyX uses advanced AI agents to investigate claims, detect misinformation, and deliver evidence-based truth verification in real-time.</p>
+                        
+                        <!-- Quick Verify -->
+                        <div class="quick-verify glass-card">
+                            <div class="verify-tabs">
+                                <button class="verify-tab active" data-tab="text">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                                    Text
+                                </button>
+                                <button class="verify-tab" data-tab="url">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                    URL
+                                </button>
+                                <button class="verify-tab" data-tab="image">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    Image
+                                </button>
+                                <button class="verify-tab" data-tab="video">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                                    Video
+                                </button>
+                            </div>
+                            <div class="verify-input-container">
+                                <div class="verify-input-wrapper" id="verify-input-text">
+                                    <textarea id="claim-input" class="verify-input" placeholder="Enter a claim, statement, or paste text to verify..." rows="3"></textarea>
+                                    <div class="input-actions">
+                                        <button class="btn btn-ghost btn-sm" id="clear-input">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                                            Clear
+                                        </button>
+                                        <span class="char-count"><span id="char-count">0</span>/5000</span>
+                                    </div>
+                                </div>
+                                <div class="verify-input-wrapper hidden" id="verify-input-url">
+                                    <input type="url" id="url-input" class="verify-input" placeholder="Paste a URL to investigate...">
+                                </div>
+                                <div class="verify-input-wrapper hidden" id="verify-input-image">
+                                    <div class="upload-zone" id="image-upload-zone">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                        <p>Drop image here or <span class="upload-browse">browse</span></p>
+                                        <span class="upload-hint">PNG, JPG, WEBP up to 10MB</span>
+                                        <input type="file" id="image-input" accept="image/*" hidden>
+                                    </div>
+                                </div>
+                                <div class="verify-input-wrapper hidden" id="verify-input-video">
+                                    <div class="upload-zone" id="video-upload-zone">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                                        <p>Drop video here or <span class="upload-browse">browse</span></p>
+                                        <span class="upload-hint">MP4, WEBM up to 100MB</span>
+                                        <input type="file" id="video-input" accept="video/*" hidden>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="verify-actions">
+                                <button class="btn btn-primary btn-lg" id="verify-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                                    Verify Now
+                                </button>
+                                <button class="btn btn-ghost btn-lg" id="deep-verify-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    Deep Investigation
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dual Investigation Mode -->
+                        <div class="dual-investigate glass-card">
+                            <h3 class="section-title-sm">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                Dual Investigation Mode
+                            </h3>
+                            <p class="dual-desc">Investigate both sides of any claim simultaneously</p>
+                            <div class="dual-buttons">
+                                <button class="btn btn-success btn-lg" id="prove-true-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                                    Prove It True
+                                </button>
+                                <div class="dual-vs">VS</div>
+                                <button class="btn btn-danger btn-lg" id="prove-false-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                                    Prove It False
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar glass-card">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="2847291">0</span>
+                        <span class="stat-label">Claims Verified</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="15243">0</span>
+                        <span class="stat-label">Active Sources</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="98">0</span>
+                        <span class="stat-label">Countries Covered</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="12">0</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="features-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Investigation Capabilities</h2>
+                        <p class="section-subtitle">Powered by Truth Agent AI — our autonomous investigation system</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #00d4ff">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            </div>
+                            <h3>Deep Search Engine</h3>
+                            <p>Multi-source recursive investigation across news, journals, government sites, and archives.</p>
+                        </div>
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #7b2ff7">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            </div>
+                            <h3>Image Investigation</h3>
+                            <p>Reverse search, manipulation detection, AI-generation analysis, and deepfake detection.</p>
+                        </div>
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #ff6b6b">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            </div>
+                            <h3>Video Analysis</h3>
+                            <p>Frame extraction, face analysis, deepfake detection, audio authenticity verification.</p>
+                        </div>
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #ffd93d">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <h3>Travel Search</h3>
+                            <p>Location-based investigation with local news, weather, satellite, and authority data.</p>
+                        </div>
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #6bcb77">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                            </div>
+                            <h3>Source Trust System</h3>
+                            <p>Dynamic source ranking with credibility scoring and historical accuracy tracking.</p>
+                        </div>
+                        <div class="feature-card glass-card">
+                            <div class="feature-icon" style="--accent: #ff922b">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                            </div>
+                            <h3>Investigation Reports</h3>
+                            <p>Professional reports with evidence analysis, timelines, and confidence scoring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Feed -->
+                <div class="live-feed-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="live-dot"></span>
+                            Live Verification Feed
+                        </h2>
+                        <a href="#" class="view-all-link" data-page="community">View All →</a>
+                    </div>
+                    <div class="feed-grid" id="live-feed">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Truth Map Preview -->
+                <div class="map-preview-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Truth Map</h2>
+                        <p class="section-subtitle">Global investigation visualization</p>
+                    </div>
+                    <div class="map-container glass-card" id="truth-map-preview">
+                        <div class="map-placeholder">
+                            <div class="world-map-svg" id="world-map"></div>
+                            <div class="map-overlay">
+                                <button class="btn btn-primary" data-page="heatmap">Open Full Map</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INVESTIGATE PAGE -->
+            <section id="page-investigate" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Investigation Center</h1>
+                    <p class="page-subtitle">Submit claims for deep AI-powered investigation</p>
+                </div>
+                <div class="investigate-layout">
+                    <div class="investigate-main">
+                        <div class="glass-card investigation-form">
+                            <h2>New Investigation</h2>
+                            <div class="form-group">
+                                <label class="form-label">Claim Title</label>
+                                <input type="text" class="form-input" id="inv-title" placeholder="Brief title for this investigation">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Claim / Statement</label>
+                                <textarea class="form-input form-textarea" id="inv-claim" placeholder="Enter the full claim or statement to investigate..." rows="5"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Category</label>
+                                    <select class="form-input form-select" id="inv-category">
+                                        <option value="">Select category...</option>
+                                        <option value="politics">Politics</option>
+                                        <option value="health">Health & Medicine</option>
+                                        <option value="science">Science & Technology</option>
+                                        <option value="environment">Environment</option>
+                                        <option value="economy">Economy</option>
+                                        <option value="social">Social Issues</option>
+                                        <option value="international">International</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Priority</label>
+                                    <select class="form-input form-select" id="inv-priority">
+                                        <option value="normal">Normal</option>
+                                        <option value="high">High</option>
+                                        <option value="urgent">Urgent</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Attachments (Optional)</label>
+                                <div class="upload-zone-sm" id="inv-upload">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    <p>Drop files or <span class="upload-browse">browse</span></p>
+                                    <input type="file" id="inv-file-input" multiple hidden>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary btn-lg" id="submit-investigation">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                                    Launch Investigation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investigate-sidebar">
+                        <div class="glass-card sidebar-card">
+                            <h3>Recent Investigations</h3>
+                            <div class="recent-list" id="recent-investigations">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        <div class="glass-card sidebar-card">
+                            <h3>Investigation Stats</h3>
+                            <div class="sidebar-stats">
+                                <div class="sidebar-stat">
+                                    <span class="sidebar-stat-value">1,247</span>
+                                    <span class="sidebar-stat-label">Total</span>
+                                </div>
+                                <div class="sidebar-stat">
+                                    <span class="sidebar-stat-value stat-true">68%</span>
+                                    <span class="sidebar-stat-label">Verified True</span>
+                                </div>
+                                <div class="sidebar-stat">
+                                    <span class="sidebar-stat-value stat-false">22%</span>
+                                    <span class="sidebar-stat-label">Verified False</span>
+                                </div>
+                                <div class="sidebar-stat">
+                                    <span class="sidebar-stat-value stat-mixed">10%</span>
+                                    <span class="sidebar-stat-label">Mixed/Unverified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRUTH BATTLE PAGE -->
+            <section id="page-truth-battle" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Truth Battle</h1>
+                    <p class="page-subtitle">Two AI agents debate. A Judge determines the winner.</p>
+                </div>
+                <div class="battle-setup glass-card">
+                    <h2>Start a Truth Battle</h2>
+                    <p>Submit a controversial claim and watch two AI agents investigate and debate both sides.</p>
+                    <div class="form-group">
+                        <label class="form-label">Controversial Claim</label>
+                        <textarea class="form-input form-textarea" id="battle-claim" placeholder="Enter a controversial claim to debate..." rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-lg" id="start-battle-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Start Truth Battle
+                    </button>
+                </div>
+                <div class="battle-arena glass-card" id="battle-arena" style="display:none;">
+                    <div class="battle-header">
+                        <div class="battle-claim-display">
+                            <h3 id="battle-claim-title"></h3>
+                        </div>
+                        <div class="battle-timer">
+                            <span id="battle-timer">00:00</span>
+                        </div>
+                    </div>
+                    <div class="battle-agents">
+                        <div class="agent-card agent-alpha">
+                            <div class="agent-header">
+                                <div class="agent-avatar">α</div>
+                                <div class="agent-info">
+                                    <h4>Truth Agent Alpha</h4>
+                                    <span class="agent-role">Supporting the Claim</span>
+                                </div>
+                                <div class="agent-score" id="alpha-score">0</div>
+                            </div>
+                            <div class="agent-evidence" id="alpha-evidence">
+                                <div class="evidence-loading">
+                                    <div class="pulse-loader"></div>
+                                    <span>Gathering evidence...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="battle-vs">
+                            <div class="vs-circle">VS</div>
+                        </div>
+                        <div class="agent-card agent-beta">
+                            <div class="agent-header">
+                                <div class="agent-avatar">β</div>
+                                <div class="agent-info">
+                                    <h4>Truth Agent Beta</h4>
+                                    <span class="agent-role">Opposing the Claim</span>
+                                </div>
+                                <div class="agent-score" id="beta-score">0</div>
+                            </div>
+                            <div class="agent-evidence" id="beta-evidence">
+                                <div class="evidence-loading">
+                                    <div class="pulse-loader"></div>
+                                    <span>Gathering evidence...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="battle-judge glass-card" id="battle-judge" style="display:none;">
+                        <div class="judge-header">
+                            <div class="judge-icon">⚖</div>
+                            <h3>Judge AI Verdict</h3>
+                        </div>
+                        <div class="judge-verdict" id="judge-verdict"></div>
+                    </div>
+                </div>
+                <div class="past-battles">
+                    <h2 class="section-title">Past Battles</h2>
+                    <div class="battles-list" id="past-battles">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- HEATMAP PAGE -->
+            <section id="page-heatmap" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Misinformation Heatmap</h1>
+                    <p class="page-subtitle">Real-time global misinformation tracking</p>
+                </div>
+                <div class="heatmap-controls glass-card">
+                    <div class="heatmap-filters">
+                        <select class="form-input form-select" id="heatmap-category">
+                            <option value="all">All Categories</option>
+                            <option value="politics">Politics</option>
+                            <option value="health">Health</option>
+                            <option value="science">Science</option>
+                            <option value="environment">Environment</option>
+                        </select>
+                        <select class="form-input form-select" id="heatmap-timeframe">
+                            <option value="24h">Last 24 Hours</option>
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d">Last 30 Days</option>
+                        </select>
+                    </div>
+                    <div class="heatmap-legend">
+                        <span class="legend-item"><span class="legend-color" style="background:#6bcb77"></span> Low</span>
+                        <span class="legend-item"><span class="legend-color" style="background:#ffd93d"></span> Medium</span>
+                        <span class="legend-item"><span class="legend-color" style="background:#ff6b6b"></span> High</span>
+                    </div>
+                </div>
+                <div class="heatmap-container glass-card">
+                    <div id="world-heatmap"></div>
+                </div>
+                <div class="heatmap-stats">
+                    <div class="glass-card heatmap-stat-card">
+                        <h4>Hotspots</h4>
+                        <span class="heatmap-stat-number">23</span>
+                    </div>
+                    <div class="glass-card heatmap-stat-card">
+                        <h4>Active Claims</h4>
+                        <span class="heatmap-stat-number">1,847</span>
+                    </div>
+                    <div class="glass-card heatmap-stat-card">
+                        <h4>Verified Today</h4>
+                        <span class="heatmap-stat-number">342</span>
+                    </div>
+                    <div class="glass-card heatmap-stat-card">
+                        <h4>Flagged</h4>
+                        <span class="heatmap-stat-number">89</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REPORTS PAGE -->
+            <section id="page-reports" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Investigation Reports</h1>
+                    <p class="page-subtitle">Professional evidence-based verification reports</p>
+                </div>
+                <div class="reports-layout">
+                    <div class="reports-list" id="reports-list">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="report-detail glass-card" id="report-detail">
+                        <div class="report-empty">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                            <p>Select a report to view details</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMMUNITY PAGE -->
+            <section id="page-community" class="page">
+                <div class="page-header">
+                    <h1 class="page-title">Community</h1>
+                    <p class="page-subtitle">Submit claims, discuss investigations, and report misinformation</p>
+                </div>
+                <div class="community-layout">
+                    <div class="community-feed" id="community-feed">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="community-sidebar">
+                        <div class="glass-card sidebar-card">
+                            <h3>Top Contributors</h3>
+                            <div class="contributors-list" id="top-contributors">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        <div class="glass-card sidebar-card">
+                            <h3>Trending Topics</h3>
+                            <div class="trending-tags" id="trending-tags">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESULTS PAGE (shown after verification) -->
+            <section id="page-results" class="page">
+                <div class="results-container" id="results-container">
+                    <!-- Populated by JS after verification -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer id="main-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <div class="nav-brand">
+                        <div class="brand-icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="18" stroke="url(#brandGradF)" stroke-width="2"/>
+                                <path d="M12 20L18 26L28 14" stroke="url(#brandGradF)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="brandGradF" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00d4ff"/>
+                                        <stop offset="100%" stop-color="#7b2ff7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="brand-text">Verify<span class="brand-highlight">X</span></span>
+                    </div>
+                    <p class="footer-desc">AI-powered truth verification platform. Detecting misinformation with advanced AI agents and deep search technology.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="#">Investigate</a>
+                        <a href="#">Truth Battle</a>
+                        <a href="#">Heatmap</a>
+                        <a href="#">Reports</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a href="#">API Docs</a>
+                        <a href="#">Browser Extension</a>
+                        <a href="#">Research</a>
+                        <a href="#">Blog</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Press</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 VerifyX. All rights reserved. Truth Beyond The Noise.</p>
+                <div class="footer-lang">
+                    <select id="lang-select">
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Auth Modal -->
+        <div class="modal-overlay" id="auth-modal">
+            <div class="modal glass-card">
+                <button class="modal-close" id="auth-modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+                <div class="modal-header">
+                    <h2 id="auth-modal-title">Sign In</h2>
+                    <p>Access your VerifyX dashboard</p>
+                </div>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-auth="signin">Sign In</button>
+                    <button class="auth-tab" data-auth="signup">Sign Up</button>
+                </div>
+                <form id="auth-form" class="auth-form">
+                    <div class="form-group" id="signup-name-group" style="display:none;">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full" id="auth-submit-btn">Sign In</button>
+                </form>
+                <div class="auth-divider"><span>or continue with</span></div>
+                <div class="auth-social">
+                    <button class="btn btn-ghost btn-social">
+                        <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Google
+                    </button>
+                    <button class="btn btn-ghost btn-social">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Panel -->
+        <div class="notifications-panel glass-card" id="notifications-panel">
+            <div class="notifications-header">
+                <h3>Notifications</h3>
+                <button class="btn btn-ghost btn-sm" id="mark-all-read">Mark all read</button>
+            </div>
+            <div class="notifications-list" id="notifications-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <span class="brand-text">Verify<span class="brand-highlight">X</span></span>
+                <button class="nav-icon-btn" id="mobile-menu-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="#" class="mobile-nav-link active" data-page="home">Home</a>
+                <a href="#" class="mobile-nav-link" data-page="investigate">Investigate</a>
+                <a href="#" class="mobile-nav-link" data-page="truth-battle">Truth Battle</a>
+                <a href="#" class="mobile-nav-link" data-page="heatmap">Heatmap</a>
+                <a href="#" class="mobile-nav-link" data-page="reports">Reports</a>
+                <a href="#" class="mobile-nav-link" data-page="community">Community</a>
+            </div>
+        </div>
+        <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
